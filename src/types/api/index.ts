@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios"
 
 export interface APISource {
     token: string
@@ -5,8 +6,8 @@ export interface APISource {
 
     setToken: (token: string) => void
 
-    get: (path: string) => Promise<any>
-    post: <T>(path: string, data: T) => Promise<any>
-    patch: <T>(path: string, data: T) => Promise<any>
-    delete: (path: string, id: string) => Promise<any>
+    get: (path: string) => Promise<AxiosResponse>
+    post: <T>(path: string, data: T) => Promise<AxiosResponse>
+    patch: <T>(path: string, data: T) => Promise<AxiosResponse>
+    delete: (path: string, id: string) => Promise<AxiosResponse>
 }

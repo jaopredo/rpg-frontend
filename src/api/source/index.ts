@@ -10,6 +10,7 @@ export default class APIInterface implements APISource {
 
     constructor(route: string) {
         this.route = route
+        this.token = (typeof window !== 'undefined' ? localStorage.getItem('token') : '') as string
     }
 
     public setToken(token: string) {
@@ -17,7 +18,14 @@ export default class APIInterface implements APISource {
     }
 
     public get(path: string) {
-        return AxiosInstance.get(`${path}/${this.route}`)
+        return AxiosInstance.get(
+            `${path}/${this.route}`,
+            {
+                headers: {
+                    Authorization: `JOJO ${this.token}`
+                }
+            }
+        )
     }
 
     public post<T>(path: string, data: T) {

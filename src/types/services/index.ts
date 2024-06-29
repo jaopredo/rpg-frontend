@@ -1,4 +1,5 @@
 import { APISource } from "../api"
+import { AxiosResponse } from "axios"
 
 /* TIPO QUE MOSTRA QUAIS AS INFORMAÇÕES PASSADAS NOS MÉTODOS */
 export interface PlayerData {
@@ -12,11 +13,11 @@ export interface PlayerServiceInterface {
 
     register: (
         data: PlayerData
-    ) => Promise<any>
+    ) => Promise<AxiosResponse>
 
     login: (
         data: Omit<PlayerData, 'name'>
-    ) => Promise<any>
+    ) => Promise<AxiosResponse>
 
-    test: () => Promise<any>
+    test: () => Promise<AxiosResponse>
 }
