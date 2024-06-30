@@ -1,7 +1,7 @@
 'use client'
+// import { useEffect } from "react"
 
 export default function Home() {
-    return <main>
-        TESTE
+    return <main className="flex flex-col">
     </main>
 }

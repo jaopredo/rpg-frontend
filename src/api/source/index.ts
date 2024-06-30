@@ -1,42 +1,35 @@
+import { AxiosRequestConfig } from "axios"
 import AxiosInstance from ".."
+import { updateRequestHeaders } from "@/functions"
 
 /* TIPOS */
-import type { APISource } from '@/types/api'
+import type { APISourceInterface } from '@/types/api'
 
 
-export default class APIInterface implements APISource {
-    token = ''  // É colocado
+export default class APISource implements APISourceInterface {
     route = ''  // É colocado dependendo do serviço que instancia
 
     constructor(route: string) {
         this.route = route
-        this.token = (typeof window !== 'undefined' ? localStorage.getItem('token') : '') as string
     }
 
-    public setToken(token: string) {
-        this.token = token
+    public get(path: string, config?: AxiosRequestConfig) {
+        config = updateRequestHeaders(config)
+        return AxiosInstance.get(`${this.route}/${path}`, config)
     }
 
-    public get(path: string) {
-        return AxiosInstance.get(
-            `${path}/${this.route}`,
-            {
-                headers: {
-                    Authorization: `JOJO ${this.token}`
-                }
-            }
-        )
+    public post<T>(path: string, data: T, config?: AxiosRequestConfig) {
+        config = updateRequestHeaders(config)
+        return AxiosInstance.post<T>(`${this.route}/${path}`, data, config)
     }
 
-    public post<T>(path: string, data: T) {
-        return AxiosInstance.post<T>(`${path}/${this.route}`, data)
+    public patch<T>(path: string, data: T, config?: AxiosRequestConfig) {
+        config = updateRequestHeaders(config)
+        return AxiosInstance.patch<T>(`${this.route}/${path}`, data, config)
     }
 
-    public patch<T>(path: string, data: T) {
-        return AxiosInstance.patch<T>(`${path}/${this.route}`, data)
-    }
-
-    public delete(path: string, id: string) {
-        return AxiosInstance.delete(`${path}/${this.route}/${id}`)
+    public delete(path: string, config?: AxiosRequestConfig) {
+        config = updateRequestHeaders(config)
+        return AxiosInstance.delete(`${this.route}/${path}`, config)
     }
 }

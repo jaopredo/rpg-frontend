@@ -1,4 +1,4 @@
-import { APISource } from "../api"
+import { APISourceInterface } from "../api"
 import { AxiosResponse } from "axios"
 
 /* TIPO QUE MOSTRA QUAIS AS INFORMAÇÕES PASSADAS NOS MÉTODOS */
@@ -9,7 +9,7 @@ export interface PlayerData {
 }
 
 export interface PlayerServiceInterface {
-    source: APISource
+    source: APISourceInterface
 
     register: (
         data: PlayerData
