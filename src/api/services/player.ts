@@ -1,16 +1,17 @@
 import APISource from "../source"
-import type { PlayerServiceInterface, PlayerData } from "@/types/services/player"
+import PlayerServiceInterface from "@/types/services/player"
+import Player from "@/types/models/player"
 
 /* CLASSE QUE VAI OFERCER OS MÉTODOS PARA FAZER AS REQUISIÇÕES DE PLAYER */
 export default class PlayerService implements PlayerServiceInterface {
     source = new APISource('player')
     
-    register(data: PlayerData) {
-        return this.source.post<PlayerData>('register', data)
+    register(data: Player) {
+        return this.source.post<Player>('register', data)
     }
 
-    login(data: Omit<PlayerData, 'name'>) {
-        return this.source.post<Omit<PlayerData, 'name'>>('login', data)
+    login(data: Omit<Player, 'name'>) {
+        return this.source.post<Omit<Player, 'name'>>('login', data)
     }
 
     test() {

@@ -2,7 +2,7 @@
 import APISource from "../source"
 
 /* TYPES */
-import { CharacterServiceInterface, LevelUpRequestBody } from "@/types/services/character"
+import CharacterServiceInterface, { LevelUpRequestBody } from "@/types/services/character"
 import Character from "@/types/models/character"
 
 export default class CharacterService implements CharacterServiceInterface {

@@ -28,6 +28,11 @@ export default class APISource implements APISourceInterface {
         return AxiosInstance.patch<T>(`${this.route}/${path}`, data, config)
     }
 
+    public put<T>(path: string, data: T, config?: AxiosRequestConfig) {
+        config = updateRequestHeaders(config)
+        return AxiosInstance.put<T>(`${this.route}/${path}`, data, config)
+    }
+
     public delete(path: string, config?: AxiosRequestConfig) {
         config = updateRequestHeaders(config)
         return AxiosInstance.delete(`${this.route}/${path}`, config)

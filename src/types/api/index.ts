@@ -7,5 +7,6 @@ export interface APISourceInterface {
     get: (path: string, config?: AxiosRequestConfig) => Promise<AxiosResponse>
     post: <T>(path: string, data: T, config?: AxiosRequestConfig) => Promise<AxiosResponse>
     patch: <T>(path: string, data: T, config?: AxiosRequestConfig) => Promise<AxiosResponse>
+    put: <T>(path: string, data: T, config?: AxiosRequestConfig) => Promise<AxiosResponse>
     delete: (path: string, config?: AxiosRequestConfig) => Promise<AxiosResponse>
 }

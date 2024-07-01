@@ -28,7 +28,7 @@ export interface LevelUpRequestBody {
     }
 }
 
-export interface CharacterServiceInterface {
+export default interface CharacterServiceInterface {
     source: APISourceInterface
 
     get: (id: string) => Promise<AxiosResponse>

@@ -1,7 +1,7 @@
 import APISource from "../source"
 
 import Substand from "@/types/models/substand"
-import { SubStandServiceInterface } from "@/types/services/substand"
+import SubStandServiceInterface from "@/types/services/substand"
 
 
 export default class SubstandService implements SubStandServiceInterface {

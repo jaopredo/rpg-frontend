@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios"
 
 import Stand from "../models/stand"
 
-export interface StandServiceInterface {
+export default interface StandServiceInterface {
     source: APISourceInterface
 
     get: (charId: string) => Promise<AxiosResponse>

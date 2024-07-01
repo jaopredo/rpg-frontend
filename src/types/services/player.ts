@@ -3,7 +3,7 @@ import { AxiosResponse } from "axios"
 
 import Player from "../models/player"
 
-export interface PlayerServiceInterface {
+export default interface PlayerServiceInterface {
     source: APISourceInterface
 
     register: (

@@ -3,7 +3,7 @@ import APISource from "../source"
 
 /* TYPES */
 import Stand from "@/types/models/stand"
-import { StandServiceInterface } from "@/types/services/stand"
+import StandServiceInterface from "@/types/services/stand"
 
 export default class StandService implements StandServiceInterface {
     source = new APISource('stand')
