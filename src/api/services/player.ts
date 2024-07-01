@@ -1,19 +1,35 @@
-import APIInterface from "../source"
-import type { PlayerServiceInterface, PlayerData } from "@/types/services"
+import APISource from "../source"
+import ErrorHandler from "@/errors"
+
+// Tipos
+import PlayerServiceInterface from "@/types/services/player"
+import Player from "@/types/models/player"
 
 /* CLASSE QUE VAI OFERCER OS MÉTODOS PARA FAZER AS REQUISIÇÕES DE PLAYER */
 export default class PlayerService implements PlayerServiceInterface {
-    source = new APIInterface('player')
+    source = new APISource('player')
     
-    register(data: PlayerData) {
-        return this.source.post<PlayerData>('register', data)
+    public async register(data: Player) {
+        try {
+            return await this.source.post<Player>('register', data)
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 
-    login(data: Omit<PlayerData, 'name'>) {
-        return this.source.post<Omit<PlayerData, 'name'>>('login', data)
+    public async login(data: Omit<Player, 'name'>) {
+        try {
+            return await this.source.post<Omit<Player, 'name'>>('login', data)
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 
-    test() {
-        return this.source.get('')
+    public async test() {
+        try {
+            return await this.source.get('')
+        } catch(e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 }
