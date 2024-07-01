@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "../sass/global.scss"
-import { APIProvider } from "@/contexts/api"
+import ContextsProvider from "@/contexts"
+import Errors from "@/partials/Errors"
 
 /* CONTEXT */
 
@@ -20,9 +21,10 @@ export default function RootLayout({
     return (
         <html lang="pt-br">
             <body className={inter.className}>
-                <APIProvider>
+                <ContextsProvider>
                     {children}
-                </APIProvider>
+                </ContextsProvider>
+                <Errors/>
             </body>
         </html>
     )

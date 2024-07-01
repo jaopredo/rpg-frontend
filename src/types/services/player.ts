@@ -8,11 +8,11 @@ export default interface PlayerServiceInterface {
 
     register: (
         data: Player
-    ) => Promise<AxiosResponse>
+    ) => Promise<void | AxiosResponse>
 
     login: (
         data: Omit<Player, 'name'>
-    ) => Promise<AxiosResponse>
+    ) => Promise<void | AxiosResponse>
 
-    test: () => Promise<AxiosResponse>
+    test: () => Promise<void | AxiosResponse>
 }
