@@ -6,8 +6,8 @@ import Substand from "../models/substand"
 export default interface SubStandServiceInterface {
     source: APISourceInterface
 
-    get: (charId: string) => Promise<AxiosResponse>
-    create: (charId: string, body: Omit<Substand, 'move'|'combat'>) => Promise<AxiosResponse>
+    get: (charId: string) => Promise<void|AxiosResponse>
+    create: (charId: string, body: Omit<Substand, 'move'|'combat'>) => Promise<void|AxiosResponse>
     
-    updateImage: (standId: string, image: string) => Promise<AxiosResponse>
+    updateImage: (standId: string, image: string) => Promise<void|AxiosResponse>
 }

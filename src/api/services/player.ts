@@ -9,8 +9,12 @@ import Player from "@/types/models/player"
 export default class PlayerService implements PlayerServiceInterface {
     source = new APISource('player')
     
-    public register(data: Player) {
-        return this.source.post<Player>('register', data)
+    public async register(data: Player) {
+        try {
+            return await this.source.post<Player>('register', data)
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 
     public async login(data: Omit<Player, 'name'>) {

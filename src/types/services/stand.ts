@@ -6,8 +6,8 @@ import Stand from "../models/stand"
 export default interface StandServiceInterface {
     source: APISourceInterface
 
-    get: (charId: string) => Promise<AxiosResponse>
-    create: (charId: string, body: Omit<Stand, 'move'|'combat'>) => Promise<AxiosResponse>
+    get: (charId: string) => Promise<void|AxiosResponse>
+    create: (charId: string, body: Omit<Stand, 'move'|'combat'>) => Promise<void|AxiosResponse>
     
-    updateImage: (standId: string, image: string) => Promise<AxiosResponse>
+    updateImage: (standId: string, image: string) => Promise<void|AxiosResponse>
 }
