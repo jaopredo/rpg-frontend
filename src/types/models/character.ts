@@ -1,6 +1,3 @@
-import { APISourceInterface } from "../api"
-import { AxiosResponse } from "axios"
-
 /* TODOS OS TIPOS DO PERSONAGEM */
 // Informações básicas
 

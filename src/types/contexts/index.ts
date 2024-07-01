@@ -1,5 +1,6 @@
 import type { PlayerServiceInterface } from '../services/player'
 import type { CharacterServiceInterface } from '../services/character'
+import { StandServiceInterface } from '../services/stand'
 
 /**
  * Mostra quais são as propriedades de API Provider (Fornece os serviços de API)
@@ -12,4 +13,5 @@ import type { CharacterServiceInterface } from '../services/character'
 export interface APIProviderInterface {
     playerService: PlayerServiceInterface
     characterService: CharacterServiceInterface
+    standService: StandServiceInterface
 }

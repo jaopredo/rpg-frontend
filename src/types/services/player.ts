@@ -1,22 +1,17 @@
 import { APISourceInterface } from "../api"
 import { AxiosResponse } from "axios"
 
-/* TIPO QUE MOSTRA QUAIS AS INFORMAÇÕES PASSADAS NOS MÉTODOS */
-export interface PlayerData {
-    name: string,
-    email: string,
-    password: string
-}
+import Player from "../models/player"
 
 export interface PlayerServiceInterface {
     source: APISourceInterface
 
     register: (
-        data: PlayerData
+        data: Player
     ) => Promise<AxiosResponse>
 
     login: (
-        data: Omit<PlayerData, 'name'>
+        data: Omit<Player, 'name'>
     ) => Promise<AxiosResponse>
 
     test: () => Promise<AxiosResponse>

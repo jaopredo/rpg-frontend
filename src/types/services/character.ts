@@ -1,8 +1,6 @@
 import { APISourceInterface } from "../api"
 import { AxiosResponse } from "axios"
 import Character, {
-    CharacterCombat,
-    CharacterLevel,
     CharacterAttributes,
 
     CharacterSpecialities,
