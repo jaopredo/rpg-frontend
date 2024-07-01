@@ -1,4 +1,7 @@
 import APISource from "../source"
+import ErrorHandler from "@/errors"
+
+// Tipos
 import PlayerServiceInterface from "@/types/services/player"
 import Player from "@/types/models/player"
 
@@ -6,15 +9,27 @@ import Player from "@/types/models/player"
 export default class PlayerService implements PlayerServiceInterface {
     source = new APISource('player')
     
-    register(data: Player) {
-        return this.source.post<Player>('register', data)
+    public async register(data: Player) {
+        try {
+            return await this.source.post<Player>('register', data)
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 
-    login(data: Omit<Player, 'name'>) {
-        return this.source.post<Omit<Player, 'name'>>('login', data)
+    public async login(data: Omit<Player, 'name'>) {
+        try {
+            return await this.source.post<Omit<Player, 'name'>>('login', data)
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 
-    test() {
-        return this.source.get('')
+    public async test() {
+        try {
+            return await this.source.get('')
+        } catch(e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 }

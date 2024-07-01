@@ -1,5 +1,13 @@
 import { AxiosResponse, AxiosRequestConfig } from "axios"
 
+// Tipo Genérico de Resposta
+export type GenericResponse<T> = {
+    [K in keyof T]: T[K]
+} & {
+    error: boolean
+    msg: string
+}
+
 // Tipo que define as propriedades do recurso da API
 export interface APISourceInterface {
     route: string

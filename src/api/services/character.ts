@@ -1,3 +1,5 @@
+import ErrorHandler from "@/errors"
+
 /* API SOURCE */
 import APISource from "../source"
 
@@ -9,35 +11,65 @@ export default class CharacterService implements CharacterServiceInterface {
     source = new APISource('character')
 
     // Adiciona um personagem novo na API
-    public add(data: Omit<Character, "combat" | "level" | "abilities" | "playerId">) {
-        return this.source.post('', data)
+    async add(data: Omit<Character, "combat" | "level" | "abilities" | "playerId">) {
+        try {
+            return this.source.post('', data)
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 
     // Pega um personagem da API
-    public get (id: string) {
-        return this.source.get('', { params: { id } })
+    async get (id: string) {
+        try {
+            return this.source.get('', { params: { id } })
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 
     // Deleta um Personagem da API
-    public delete (id: string) {
-        return this.source.delete('', { params: { id } })
+    async delete (id: string) {
+        try {
+            return this.source.delete('', { params: { id } })
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 
+
     // Atualiza a vida de um personagem
-    public updateLife (id: string, life: number) {
-        return this.source.patch('life', { life }, { params: { id } })
+    async updateLife (id: string, life: number) {
+        try {
+            return this.source.patch('life', { life }, { params: { id } })
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
     // Atualiza a energia mental de um personagem
-    public updateMentalEnergy(id: string, mentalEnergy: number) {
-        return this.source.patch('mentalEnergy', { mentalEnergy }, { params: { id } })
+    async updateMentalEnergy(id: string, mentalEnergy: number) {
+        try {
+            return this.source.patch('mentalEnergy', { mentalEnergy }, { params: { id } })
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
     // Atualiza o XP de um personagem
-    public saveXP (id: string, xp: number) {
-        return this.source.patch('saveXP', { actualXP: xp }, { params: { id } })
+    async saveXP (id: string, xp: number) {
+        try {
+            return this.source.patch('saveXP', { actualXP: xp }, { params: { id } })
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
     
+
     // Upa um personagem de nível
-    public levelUP(id: string, body: LevelUpRequestBody) {
-        return this.source.patch('levelUp', body, { params: { id } })
+    async levelUP(id: string, body: LevelUpRequestBody) {
+        try {
+            return this.source.patch('levelUp', body, { params: { id } })
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
     }
 }
