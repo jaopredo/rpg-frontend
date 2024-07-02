@@ -2,4 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ESTILOS GENÉRICOS  */
+.gray-button {
+    @apply bg-slate-700 p-2 rounded-md text-white hover:bg-slate-800 active:bg-slate-900 disabled:bg-slate-300
+}
 
+
+/* ESTILOS DE FORMULÁRIO */
+.formtools-label {
+    @apply text-sm font-bold;
+}
+
+.formtools-input {
+    @apply bg-white border p-2 focus:outline-none rounded-md flex-grow;
+}
+
+.formtools-insider {
+    @apply flex items-center justify-center gap-2;
+}
+
+.formtools-after-icon {
+    @apply text-2xl hover:cursor-pointer;
+}
+
+.formtools-container {
+    @apply mb-4
+}
