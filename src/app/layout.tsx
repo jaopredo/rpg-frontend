@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import "../sass/global.scss"
-import ContextsProvider from "@/contexts"
 import Errors from "@/partials/Errors"
 
+/* ESTILOS */
+import "../sass/global.scss"
+
 /* CONTEXT */
+import ContextsProvider from "@/contexts"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -22,7 +24,9 @@ export default function RootLayout({
         <html lang="pt-br">
             <body className={inter.className}>
                 <ContextsProvider>
-                    {children}
+                    <div id="interface" className="bg-gray-600 flex items-center justify-center flex-col min-h-[100vh]">
+                        {children}
+                    </div>
                 </ContextsProvider>
                 <Errors/>
             </body>
