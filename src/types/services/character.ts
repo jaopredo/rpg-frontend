@@ -31,7 +31,7 @@ export interface LevelUpRequestBody {
 export default interface CharacterServiceInterface {
     source: APISourceInterface
 
-    get: (id: string) => Promise<void|AxiosResponse>
+    get: (id?: string) => Promise<void|AxiosResponse>
     add: (data: Omit<Character, 'combat' | 'level' | 'abilities' | 'playerId'>) => Promise<void|AxiosResponse>
     delete: (id: string) => Promise<void|AxiosResponse>
 
@@ -41,4 +41,5 @@ export default interface CharacterServiceInterface {
     
     levelUP: (id: string, body: LevelUpRequestBody) => Promise<void|AxiosResponse>
     image?: (id: string, body: { charId: string, img: string }) => Promise<void|AxiosResponse>
+    name: (id: string) => Promise<void|AxiosResponse>
 }

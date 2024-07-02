@@ -2,9 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-500 hover:bg-gray-700 active:bg-gray-900 rounded-md;
+}
+
 /* ESTILOS GENÉRICOS  */
+.button {
+    @apply p-2 rounded-md;
+}
+
 .gray-button {
-    @apply bg-slate-700 p-2 rounded-md text-white hover:bg-slate-800 active:bg-slate-900 disabled:bg-slate-300
+    @extend .button;
+    @apply bg-slate-700 text-white hover:bg-slate-800 active:bg-slate-900 disabled:bg-slate-300;
+}
+
+.green-button {
+    @extend .button ;
+    @apply bg-emerald-600 text-white hover:bg-emerald-800 active:bg-emerald-900
+}
+
+.red-button {
+    @extend .button ;
+    @apply bg-rose-600 text-white hover:bg-rose-800 active:bg-rose-900
 }
 
 

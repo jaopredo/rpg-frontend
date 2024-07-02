@@ -14,6 +14,7 @@ export default class APISource implements APISourceInterface {
     }
 
     public get(path: string, config?: AxiosRequestConfig) {
+        config = updateRequestHeaders(config)
         return AxiosInstance.get(`${this.route}/${path}`, config)
     }
 

@@ -20,7 +20,7 @@ export default class CharacterService implements CharacterServiceInterface {
     }
 
     // Pega um personagem da API
-    async get (id: string) {
+    async get (id?: string) {
         try {
             return this.source.get('', { params: { id } })
         } catch (e: any) {
@@ -68,6 +68,15 @@ export default class CharacterService implements CharacterServiceInterface {
     async levelUP(id: string, body: LevelUpRequestBody) {
         try {
             return this.source.patch('levelUp', body, { params: { id } })
+        } catch (e: any) {
+            ErrorHandler.add([e.response.data.msg])
+        }
+    }
+
+    // Pega o nome de um personagem
+    async name(id: string) {
+        try {
+            return this.source.get('name', { params: { id } })
         } catch (e: any) {
             ErrorHandler.add([e.response.data.msg])
         }
