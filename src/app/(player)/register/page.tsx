@@ -7,7 +7,7 @@ import Player from "@/types/models/player"
 
 export default function Login() {
 
-    function onSubmit(data: Player | FormData) {
+    function onSubmit(data: Player | FormData) {  // Função que lida quando o login for feito
         console.log(data)
     }
 
