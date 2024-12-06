@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.create-form {
+    @apply bg-yellow-500 grid;
+    grid-template-columns: 70% 30%;
+    grid-template-rows: 30vh 70vh;
+    grid-template-areas: "basic ."
+                         "attrs specs"
+                         "submit submit"
+}
+
+.basic {
+    @apply bg-red-500;
+    grid-area: basic
+}
+
+.attributes {
+    @apply bg-blue-500;
+    grid-area: attrs 
+}
+
+.specs {
+    @apply bg-green-500;
+    grid-area: specs
+}

@@ -22,7 +22,7 @@ export default function Login() {
             if (resp) {
                 const { token } = resp.data  // Pego o token retornado da API
                 localStorage.setItem('token', token)  // Coloco o token no armazenamento local
-                router.push('/logged')
+                router.push('/home')
             } else {
                 setSubmited(false)
             }
